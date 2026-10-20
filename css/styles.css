@@ -1,0 +1,198 @@
+:root{--ink:#012F3D;--navy:#014C62;--teal:#017084;--cyan:#08BCC5;--aqua:#31E3E5;--gold:#ECB643;--paper:#F4F9FA;--line:#D5E5E9;--txt:#27434D}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 16px/1.7 Montserrat,sans-serif;color:var(--txt);background:#fff}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;color:var(--ink);line-height:1.15;font-weight:700}
+h1{font-size:clamp(2.4rem,5vw,4rem)}h2{font-size:clamp(1.9rem,3.4vw,2.6rem)}h3{font-size:1.45rem}
+a{color:inherit;text-decoration:none}
+p{max-width:64ch}
+.wrap{width:min(1120px,92%);margin:auto}
+section{padding:5rem 0}
+.alt{background:var(--paper)}
+.center{text-align:center}.center p{margin:.8rem auto 0}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* Encabezado */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);transition:box-shadow .3s}
+header.sc{box-shadow:0 4px 24px rgba(1,76,98,.12)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:.7rem}
+.mark{width:38px;height:38px}
+.word{font:600 1.15rem Montserrat,sans-serif;letter-spacing:.22em;color:var(--navy)}
+.word i{font-style:normal;color:var(--cyan);position:relative}
+.word i::before{content:"";position:absolute;left:50%;top:.34em;transform:translateX(-50%);border:.2em solid transparent;border-top:.3em solid var(--gold);border-bottom:0}
+nav{display:flex;gap:2rem}
+nav a{font-weight:500;font-size:.92rem;position:relative;padding:.3rem 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover::after,nav a.on::after{transform:scaleX(1)}
+.burger{display:none;background:0;border:0;cursor:pointer;width:42px;height:42px}
+.burger span{display:block;height:2px;margin:6px 8px;background:var(--navy)}
+
+/* Botones */
+.btn{display:inline-block;padding:.9rem 1.8rem;border-radius:3px;font-weight:600;font-size:.9rem;letter-spacing:.04em;transition:.3s}
+.b1{background:var(--gold);color:var(--ink)}
+.b1:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(236,182,67,.45)}
+.b2{border:1.5px solid rgba(255,255,255,.6);color:#fff}
+.b2:hover{background:#fff;color:var(--navy)}
+
+/* Portada: la cinta del logo se dibuja al cargar */
+.hero{background:linear-gradient(135deg,var(--ink),var(--navy) 55%,var(--teal));color:#fff;padding:0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:3rem;min-height:600px}
+.hero h1{color:#fff}
+.hero p{color:#CFE7EC;margin:1.4rem 0 2.2rem;font-size:1.08rem}
+.hero .btn+.btn{margin-left:.8rem}
+.hero h1,.hero p,.btns{animation:up .9s .3s both}
+.hero-art{animation:float 7s ease-in-out infinite}
+.hero-art .mark{width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
+.hero-art .rb{animation:swoop 1.3s cubic-bezier(.2,.7,.2,1) both}
+.hero-art .gl{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.5s .7s forwards}
+@keyframes swoop{from{opacity:0;transform:translate(-40px,-40px)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes up{from{opacity:0;transform:translateY(24px)}}
+
+.ph{background:linear-gradient(120deg,var(--ink),var(--navy));color:#fff;padding:4.5rem 0 4rem;border-bottom:4px solid var(--gold)}
+.ph h1{color:#fff;animation:up .8s both}
+.ph p{color:#CFE7EC;margin-top:1rem;animation:up .8s .15s both}
+
+.strip{background:var(--paper)}
+.strip .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.strip div div{padding:1.6rem 1rem;text-align:center;font-weight:600;font-size:.92rem;color:var(--navy);border-right:1px solid var(--line)}
+
+/* Tarjetas */
+.grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:3rem}
+.card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);padding:2rem;transition:.35s}
+.card:hover{transform:translateY(-6px);border-top-color:var(--gold);box-shadow:0 18px 40px rgba(1,76,98,.12)}
+.card p{margin-top:.6rem;font-size:.95rem}
+.card ul{margin:1rem 0 0 1.1rem;font-size:.92rem}.card li{margin:.3rem 0}
+.steps{counter-reset:s}
+.steps .card{border-top:1px solid var(--line);border-left:3px solid var(--cyan)}
+.steps .card::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);font:700 1.3rem "Cormorant Garamond",serif;margin-bottom:1rem}
+.av{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--aqua));display:grid;place-items:center;color:#fff;font:700 1.6rem "Cormorant Garamond",serif;margin-bottom:1rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.two p+p{margin-top:1rem}
+.cta{background:var(--navy);color:#fff;text-align:center}
+.cta h2{color:#fff}.cta p{margin:1rem auto 2rem;color:#CFE7EC}
+
+/* Preguntas frecuentes */
+details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+summary{cursor:pointer;font-weight:600;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::after{content:"+";color:var(--gold);font-size:1.4rem;line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:.7rem;animation:up .4s}
+
+/* Formulario */
+form{display:grid;gap:1.1rem}
+label{font-weight:600;font-size:.85rem;color:var(--navy);display:grid;gap:.4rem}
+input,select,textarea{font:inherit;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:3px;background:#fff;transition:.25s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(8,188,197,.18)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.chk{display:flex;gap:.6rem;font-weight:400;align-items:flex-start}.chk input{margin-top:.35rem}
+.er{border-color:#C0392B!important}
+.ok{display:none;padding:1rem;background:#E6F8F8;border-left:4px solid var(--cyan);color:var(--navy);font-weight:600}
+.ok.show{display:block;animation:up .5s}
+.info{display:grid;gap:1rem;margin-top:0}.info .card{padding:1.3rem 1.5rem}.info b{display:block;color:var(--navy)}
+
+/* Pie */
+footer{background:var(--ink);color:#B7D2D9;padding:3.5rem 0 1.5rem;font-size:.92rem}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+footer .word{color:#fff}footer h4{color:#fff;margin-bottom:.8rem}footer a:hover{color:var(--gold)}
+.ig{display:inline-grid;place-items:center;width:42px;height:42px;border:1.5px solid rgba(255,255,255,.35);border-radius:50%;transition:.3s}
+.ig:hover{background:var(--gold);color:var(--ink);transform:rotate(-8deg) scale(1.08)}
+.ig svg{width:20px;height:20px}
+.info .ig{border-color:var(--teal);color:var(--teal);margin-top:.5rem}
+.cp{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:.82rem;max-width:none}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+.hero .wrap,.two,.fg{grid-template-columns:1fr}
+.hero .wrap{min-height:0;padding:2rem 0 3rem}
+.hero-art{max-width:240px;margin:0 auto;order:-1}
+.burger{display:block}
+nav{position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;background:#fff;max-height:0;overflow:hidden;transition:max-height .4s;box-shadow:0 12px 24px rgba(1,76,98,.12)}
+nav.open{max-height:360px}nav a{padding:1rem 4%}
+.row{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero-art .gl{stroke-dashoffset:0}}
+
+
+/* ===== Tarjetas con imagen (colores del logo de INNOVENTUS) ===== */
+ 
+/* Contenedor: 3 columnas en pantalla grande, 1 en celular */
+.img-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 1.5rem;
+}
+ 
+/* Tarjeta */
+.img-card {
+  background: #fff;
+  border: 1px solid #D5E5E9;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+ 
+/* Zona de la imagen (proporción 4:3; el fondo azul se ve si la imagen aún no carga) */
+.img-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #014C62, #08BCC5);
+}
+.img-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+ 
+/* Velo azul que aparece sobre la imagen al pasar el cursor */
+.img-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(1, 47, 61, .65), transparent 60%);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+ 
+/* Texto */
+.img-card__body {
+  position: relative;
+  padding: 1.6rem;
+}
+.img-card__body h3 { margin: 0 0 .5rem; color: #012F3D; }
+.img-card__body p  { margin: 0 0 1rem; font-size: .95rem; color: #27434D; }
+.img-card__link    { font-weight: 600; font-size: .9rem; color: #017084; transition: color .3s; }
+.img-card__link:hover { color: #014C62; text-decoration: underline; }
+ 
+/* Línea dorada que crece de izquierda a derecha */
+.img-card__body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ECB643;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s ease;
+}
+ 
+/* ===== Animación al pasar el cursor ===== */
+.img-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(1, 76, 98, .15); }
+.img-card:hover img { transform: scale(1.06); }
+.img-card:hover .img-card__media::after { opacity: 1; }
+.img-card:hover .img-card__body::before { transform: scaleX(1); }
+ 
+/* Respeta a quienes tienen desactivadas las animaciones en su dispositivo */
+@media (prefers-reduced-motion: reduce) {
+  .img-card, .img-card *, .img-card *::before, .img-card *::after { transition: none !important; }
+}
